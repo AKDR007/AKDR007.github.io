@@ -9,7 +9,9 @@
 <body style="background-color: black; color: white;display:flex;justify-content:center;align-items:center;width:100vw;height:100vh;overflow:hidden;">
 
     <h1 id="typed-text" style="font-family: -apple-system, sans-serif;text-align:center;"></h1>
-
+    <h1 id="curdate"></h1><br>
+    <h1 id="curtime"></h1>
+    
   <script>
     var typed = new Typed('#typed-text', {
       strings: ['Ajhay'],
@@ -17,6 +19,16 @@
       backSpeed: 50,
       loop: true
     });
+  </script>
+  <script>
+      function DateTime(){
+          const CDT = new Date();
+          Date_ = CDT.toLocaleDateString('en-us', {year:'numeric', month:'short', day:'numeric'});
+          Time_ = CDT.toLocaleTimeString('en-us', {hour:'numeric', minute:'numeric', second:'numeric', hour12:true});
+          document.getElementByID("curdate").innerHTML=Date_;
+          document.getElementByID("curtime").innerHTML=Time_;
+      }
+      setInterval(DateTime, 1000);
   </script>
 </body>
 </html>
